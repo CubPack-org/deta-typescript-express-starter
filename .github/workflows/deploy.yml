@@ -1,6 +1,9 @@
 name: Deploy to Deta
 on: push
-
+env:
+  DETA_ACCESS_TOKEN: ${{ secrets.DETA_TOKEN }} 
+  DETA_NAME: ${{ secrets.DETA_NAME }} 
+  DETA_PROJECT: ${{ secrets.DETA_PROJECT }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -12,8 +15,9 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm build
-      - uses: BogDAAAMN/deta-deploy-action@v1.0.1
-        with:
-          deta-access-token: ${{ secrets.DETA_TOKEN }} 
-          deta-name: ${{ secrets.DETA_NAME }} 
-          deta-project: ${{ secrets.DETA_PROJECT }} 
+      - run: |
+          curl -fsSL https://get.deta.dev/cli.sh | sh
+          deta clone --name $DETA_NAME --project $DETA_PROJECT dist/tmp
+          mv dist/tmp/.deta .
+          rm -rf dist/tmp
+          deta deploy
