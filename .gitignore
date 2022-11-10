@@ -7,5 +7,5 @@ dist/
 # Node
 node_modules/
 yarn.lock
-
+.env
 coverage/
