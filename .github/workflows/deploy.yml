@@ -17,6 +17,7 @@ jobs:
       - run: npm build
       - run: |
           curl -fsSL https://get.deta.dev/cli.sh | sh
+          export PATH="/home/runner/.deta/bin:$PATH"
           deta clone --name $DETA_NAME --project $DETA_PROJECT dist/tmp
           mv dist/tmp/.deta .
           rm -rf dist/tmp
