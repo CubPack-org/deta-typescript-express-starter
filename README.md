@@ -2,11 +2,13 @@
 
 This is a starter template for a Deta project using Node, Express and Typescript.
 
-## Uses
+This project is somewhat opinionated and includes:
 
-- Node 14.x (as Deta Micros use Node 14.x)
-- Express 4.18.1
-- Typescript 4.8.3
+ - Handling of unsupported methods with 405 and undefined routes with 404
+ - Error handling with Problem+JSON Responses
+ - Testing support with Jest
+ - CORS configured via environment variables
+ - Automated deployment on push to _main_
 
 ## Structure
 
@@ -19,13 +21,19 @@ This is a starter template for a Deta project using Node, Express and Typescript
 Install dependencies.
 
 ```
-yarn
+npm i
 ```
 
-Run `ts-node src/index.ts` and watch all the typescript files inside `src/`.
+Run `ts-node src/serve.ts` and watch all the typescript files inside `src/`.
 
 ```
-yarn dev
+npm run dev
+```
+
+Run `npx jest` and execute all test inside `test/`.
+
+```
+npm test
 ```
 
 ## Deployment
@@ -33,5 +41,5 @@ yarn dev
 Compile the source files. Deploy `index.js` pointing at `dist/index.js` and the other compiled files in `dist/`
 
 ```
-yarn deploy
+npm run deploy
 ```
