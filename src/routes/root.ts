@@ -1,4 +1,4 @@
-import * as allowMethods from "allow-methods";
+import allowMethods from "allow-methods";
 import { Request, Response, Router } from "express";
 
 export function getRoot(_req: Request, res: Response) {
