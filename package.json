@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "npx nodemon --watch src src/serve.ts",
+    "lint": "npx eslint src",
     "build": "npx tsc",
     "test": "npx jest --collect-coverage",
     "deploy": "npx tsc && deta deploy"
@@ -26,8 +28,11 @@
     "@types/morgan": "^1.9.3",
     "@types/multer": "^1.4.7",
     "@types/node": "14",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
     "deta": "^1.1.0",
     "dotenv": "^16.0.3",
+    "eslint": "^8.27.0",
     "jest": "^29.3.1",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",

@@ -1,0 +1,30 @@
+name: Build + Test PR
+on:
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: '35 22 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: "npm"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v3
+      - name: "Dependency Review"
+        uses: actions/dependency-review-action@v2

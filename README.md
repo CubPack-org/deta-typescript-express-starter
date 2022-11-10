@@ -1,4 +1,6 @@
-# Deta Typescript Express Starer
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Deploy to Deta](https://github.com/CubPack-org/deta-typescript-express-starter/actions/workflows/deploy.yml/badge.svg)](https://github.com/CubPack-org/deta-typescript-express-starter/actions/workflows/deploy.yml)
+
+# Deta Typescript Express Starter
 
 This is a starter template for a Deta project using Node, Express and Typescript.
 
