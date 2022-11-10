@@ -8,7 +8,7 @@
     "dev": "npx nodemon --watch src src/serve.ts",
     "lint": "npx eslint src",
     "build": "npx tsc",
-    "test": "npx jest --collect-coverage",
+    "test": "npx jest --collect-coverage test/**/*.ts",
     "deploy": "npx tsc && deta deploy"
   },
   "dependencies": {
